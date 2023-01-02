@@ -11,14 +11,14 @@ const routerAuth = require("./Routes/authRoute");
 
 // //Middleware
 // const {errorHandler}= require('./Middlewares/errorMiddleware')
-// const {routeErrorHandler}= require('./Middlewares/routerMiddlware')
+const {routeErrorHandler}= require('./Middlewares/routeErrorHandler')
 
 //router
 app.use("/api/auth", routerAuth);
 
 // //Middleware
 // app.use(errorHandler)
-// app.use(routeErrorHandler)
+app.use(routeErrorHandler)
 
 const port = process.env.PORT || 8081;
 app.listen(port, (err) => {
