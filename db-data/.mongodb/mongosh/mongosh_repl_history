@@ -1,0 +1,6 @@
+db.getUsers()
+admin.find()
+db.find()
+use admin
+db.getName()
+show dbs
