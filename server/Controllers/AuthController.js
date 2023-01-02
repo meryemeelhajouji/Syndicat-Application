@@ -9,6 +9,41 @@ const nodelailer = require("nodemailer");
 // route : api/auth/login
 // acces : Public
 const login = (req, res) => {
+  if (!req.body.email || !req.body.password) {
+    res.status(400).send(" please enter email or name or password ");
+  }
+  const { body } = req;
+  User.findOne({ email: body.email }).then((e) => {
+    const user = e;
+    if (e) {
+      bcrypt
+        .compare(body.password, e.password)
+        .then((e) => {
+          if (e) {
+            
+              const token = jwt.sign({ user }, process.env.SECRET, {
+                expiresIn: "120m",
+              });
+              local_storage("token", token);
+              res.status(200).json({ token: local_storage("token") });
+            
+          } else {
+            res.status(401).send("passsord invalid // unauthorized");
+          }
+        })
+        .catch(() => {
+          res.send("not hashed");
+        });
+    } else {
+      res.status(404).send("user not found");
+    }
+  });
+};
+
+// method : post
+// route : api/auth/Register
+// acces : Public
+const register = (req, res) => {
   if (!req.body.email || !req.body.name || !req.body.password) {
     res.status(400).send(" please enter email or name or password ");
   }
@@ -30,7 +65,7 @@ const login = (req, res) => {
               res.status(201).send("created");
             })
             .catch(() => {
-              res.status(400).send("not created // something woring ");
+              res.status(400).send("not created // something woring // error in length of name");
             });
         })
         .catch(() => {
@@ -41,11 +76,6 @@ const login = (req, res) => {
     }
   });
 };
-
-// method : post
-// route : api/auth/Register
-// acces : Public
-const register = (req, res) => {};
 
 // method : post
 // route : api/auth/ForgetPassword
