@@ -60,12 +60,11 @@ const getClientById = async (req, res, next) => {
 const updateClient = async (req, res, next) => {
   
   let idClient = req.params.id;
- const { body } = req;
+  const { body } = req;
   try {
    
-    const { body } = req;
-    if (await Client.updateOne({ _id: req.params.id }, { ...body }))
-      res.status(200).send("update");
+    if (await Client.updateOne({ _id: idClient}, { ...body }))
+      res.status(201).send("updated successfully");
     
     
      else  res.status(400).send("client dont  existe");
@@ -80,16 +79,13 @@ const updateClient = async (req, res, next) => {
  * ACCESS: private
  */
 const deleteClient = async (req, res, next) => {
-  const { id } = req.params;
-  const categorie = await CategoryModel.destroy({
-    where: {
-      id,
-    },
-  });
-  res.status(200).json({
-    success: true,
-    message: 'Category deleted successfully',
-  });
+  let idClient = req.params.id;
+  try {
+    if(await Client.deleteOne({_id:idClient})) 
+     res.status(201).send("client deleted successfully");
+  } catch (error) {
+    res.status(400).send(error);
+  }
 };
 
 module.exports = {
