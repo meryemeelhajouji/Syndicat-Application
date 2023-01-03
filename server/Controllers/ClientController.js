@@ -19,7 +19,8 @@ const addClient = async (req, res, next) => {
     else  res.status(400).send("already existe");
   
   } catch (error) {
-    next(error);
+    // next(error);
+    res.status(400).send(error);
   }
 };
 
@@ -30,16 +31,14 @@ const addClient = async (req, res, next) => {
  */
 const getAllClient = async (req, res, next) => {
   try {
-    const categorie = await CategoryModel.findAll({
-      raw: true,
-      nest: true,
-    });
+
+    const client = await await Client.find();
     res.status(200).json({
       success: true,
-      categorie: categorie,
+      client: client,
     });
   } catch (error) {
-    next(error);
+    res.status(400).send(error);
   }
 };
 
