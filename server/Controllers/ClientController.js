@@ -7,7 +7,6 @@ const Client = require('../Models/Client');
  * ACCESS: private
  */
 const addClient = async (req, res, next) => {
-  let name = req.body.name || '';
 
   try {
     const { body } = req;

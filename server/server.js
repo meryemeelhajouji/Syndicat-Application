@@ -9,6 +9,9 @@ app.use(express.json());
 //router
 const routerAuth = require("./Routes/authRoute");
 const routerClient = require("./Routes/clientRoute");
+const routerAppartemet= require("./Routes/appartemetRoute");
+
+
 
 
 // //Middleware
@@ -18,6 +21,9 @@ const {routeErrorHandler}= require('./Middlewares/routeErrorHandler')
 //router
 app.use("/api/auth", routerAuth);
 app.use("/api/client", routerClient);
+app.use("/api/appartement", routerAppartemet);
+
+
 
 
 // //Middleware
