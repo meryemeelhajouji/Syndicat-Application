@@ -8,6 +8,8 @@ app.use(express.json());
 
 //router
 const routerAuth = require("./Routes/authRoute");
+const routerClient = require("./Routes/clientRoute");
+
 
 // //Middleware
 // const {errorHandler}= require('./Middlewares/errorMiddleware')
@@ -15,6 +17,8 @@ const {routeErrorHandler}= require('./Middlewares/routeErrorHandler')
 
 //router
 app.use("/api/auth", routerAuth);
+app.use("/api/client", routerClient);
+
 
 // //Middleware
 // app.use(errorHandler)
