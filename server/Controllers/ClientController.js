@@ -48,16 +48,7 @@ const getAllClient = async (req, res, next) => {
  * ACCESS: private
  */
 const getClientById = async (req, res, next) => {
-  const { id } = req.params;
-  const categorie = await CategoryModel.findOne({
-    where: {
-      id,
-    },
-  });
-  res.status(200).json({
-    success: true,
-    categorie: categorie,
-  });
+
 };
 
 /**
@@ -65,26 +56,19 @@ const getClientById = async (req, res, next) => {
  * METHOD: PUT
  * ACCESS: private
  */
+  
 const updateClient = async (req, res, next) => {
-  let name = req.body.name || '';
-  let id = req.params.id;
-
+  
+  let idClient = req.params.id;
+ const { body } = req;
   try {
-    new InputValidation().categorieValidation(name);
-
-    const categorie = await CategoryModel.update(
-      { name },
-      {
-        where: {
-          id,
-        },
-      }
-    );
-    res.status(200).json({
-      success: true,
-      categorie: categorie,
-      message: 'Category updated successfully',
-    });
+   
+    const { body } = req;
+    if (await Client.updateOne({ _id: req.params.id }, { ...body }))
+      res.status(200).send("update");
+    
+    
+     else  res.status(400).send("client dont  existe");
   } catch (error) {
     next(error);
   }
