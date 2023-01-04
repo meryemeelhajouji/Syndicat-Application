@@ -1,19 +1,34 @@
-
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
-import Content from "..//components/Content";
+import React from "react";
+import { useState } from "react";
+import { Navbar, Sidebar, Card, Table } from "../components/dashboard/index";
 
 function Dashboard() {
+  const [open, setOpen] = useState(true);
   return (
-   <div>
- <div className="App h-screen overflow-y-scroll scrollbar-hide overflow-x-hidden px-6">
-      <Header />
-      <div className="flex items-start space-x-2 justify-start w-full ">
-        <Navbar />
-        <Content />
+    <div className="bg-gray-300 h-screen flex-col">
+      <div>
+        <Navbar  />
+      </div>
+      <div className="flex">
+        <div className="lg:block">
+          <Sidebar  />
+        </div>
+        <div className="m-3">
+          <div>
+            <h2 className="text-xl font-bold text-gray-800 mb-3">
+              Aperçu de votre tableau de bord <hr className="my-2 p-0" />
+            </h2>
+            <Card />
+          </div>
+          <div className="my-6">
+            <h2 className="text-xl font-bold text-gray-800 mb-3">
+              Les Commandes <hr className="my-2 p-0" />
+            </h2>
+            <Table />
+          </div>
+        </div>
       </div>
     </div>
-   </div>
   );
 }
 
