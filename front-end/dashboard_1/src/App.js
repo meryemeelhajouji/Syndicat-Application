@@ -1,6 +1,6 @@
-
 import "./App.css";
 import "./style/app-light.css"
+import 'react-toastify/dist/ReactToastify.css';
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -21,7 +21,7 @@ function App() {
         
         <Route path="/" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="*" element={<Navigate to="/" />} />
+        {/* <Route path="*" element={<Navigate to="/" />} /> */}
 
       </Routes>     
         

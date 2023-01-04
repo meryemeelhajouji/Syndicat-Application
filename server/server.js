@@ -3,7 +3,12 @@ require("./Config/config");
 const express = require("express");
 const cors = require("cors");
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: 'http://localhost:3000',
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 //router
@@ -17,6 +22,7 @@ const routerAppartemet= require("./Routes/appartemetRoute");
 // //Middleware
 // const {errorHandler}= require('./Middlewares/errorMiddleware')
 const {routeErrorHandler}= require('./Middlewares/routeErrorHandler')
+const errorhandler = require('./Middlewares/errorHandler');
 
 //router
 app.use("/api/auth", routerAuth);
@@ -29,6 +35,7 @@ app.use("/api/appartement", routerAppartemet);
 // //Middleware
 // app.use(errorHandler)
 app.use(routeErrorHandler)
+app.use(errorhandler);
 
 const port = process.env.PORT || 8081;
 app.listen(port, (err) => {
