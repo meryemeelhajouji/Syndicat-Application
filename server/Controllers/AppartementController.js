@@ -69,7 +69,13 @@ const updateAppartement = async (req, res, next) => {
  * ACCESS: private
  */
 const deleteAppartement = async (req, res, next) => {
-
+  let idAppartement = req.params.id;
+  try {
+    if(await Appartement.deleteOne({_id:idAppartement})) 
+     res.status(201).send("Appartement deleted successfully");
+  } catch (error) {
+    res.status(400).send(error);
+  }
 };
 
 module.exports = {
