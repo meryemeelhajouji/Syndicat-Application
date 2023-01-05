@@ -1,7 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-function Table() {
+function Table({ appartement }) {
+  const { numero, loue, surface, prix } = appartement;
+
   return (
     <div className="overflow-x-auto card shadow-xl">
       <div className="navbar bg-base-100">
@@ -36,10 +38,10 @@ function Table() {
         <tbody>
           <tr>
             <th>1</th>
-            <td>Cy Ganderton</td>
-            <td>Quality </td>
-            <td>Blue</td>
-            <td>Blue</td>
+            <td>{numero}</td>
+            <td>{loue} </td>
+            <td>{surface}</td>
+            <td>{prix}</td>
             <td></td>
           </tr>
         </tbody>

@@ -1,7 +1,25 @@
 import React from "react";
 import { Navbar, Sidebar, Table } from "../../components/dashboard/index";
+import { useEffect, useState } from "react";
+import {getAllAppartement} from "../../utils/requests"
+
 
 function Appartement() {
+  const [appartement, setAppartement] = useState([]);
+  const [error, setError] = useState(false);
+
+
+  useEffect(() => {
+    getAllAppartement()
+      .then((response) => {
+        console.log(response)
+        setAppartement(response.appartement);
+      })
+      .catch((error) => {
+        setError(true);
+      });
+  }, []);
+
   return (
     <div className="bg-gray-300 h-screen flex-col">
       <div>
@@ -22,7 +40,11 @@ function Appartement() {
             <h2 className="text-xl font-bold text-gray-800 mb-3">
               Les Appartement <hr className="my-2 p-0" />
             </h2>
-            <Table />
+        
+
+            {appartement.map((app) => (
+          <Table key={app.id} appartement={app} />
+        ))}
           </div>
         
         </div>

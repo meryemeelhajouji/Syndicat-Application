@@ -33,10 +33,10 @@ const addAppartement = async (req, res, next) => {
  */
 const getAllAppartement = async (req, res, next) => {
   try {
-    const Appartement = await Appartement.find().populate({path:"client_id",model:Client});
+    const appartement = await Appartement.find().populate({path:"client_id",model:Client});
     res.status(201).json({
       success: true,
-      Appartement: Appartement,
+      appartement: appartement,
     });
   } catch (error) {
     res.status(400).send(error);
