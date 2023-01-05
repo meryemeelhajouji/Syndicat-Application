@@ -7,48 +7,53 @@ function Form() {
           className="col-lg-3 col-md-4 col-10 mx-auto text-center"
          
         >
-          <a
-            className="navbar-brand mx-auto mt-2 flex-fill text-center"
-            href="./index.html"
-          >
-            <img src="dfe" alt="ffe" />
-          </a>
-          <h1 className="h6 mb-3">Sign in</h1>
+       
+          <h1 className="h6 mb-3 mt-5">add</h1>
           <div className="form-group">
             <label for="inputEmail" className="sr-only">
-              Email address
+              Numero
             </label>
             <input
-              type="email"
+              type="text"
               id="inputEmail"
               className="form-control form-control-lg"
-              placeholder="Email address"
+              placeholder="numero"
               required=""
-              name="email"
+              name="text"
              
             />
           </div>
           <div className="form-group">
             <label for="inputPassword" className="sr-only">
-              Password
+              surface
             </label>
             <input
-              type="password"
+              type="text"
               id="inputPassword"
               className="form-control form-control-lg"
-              placeholder="Password"
+              placeholder="surface"
               required=""
-              name="password"
+              name="text"
              
             />
           </div>
-          <div className="checkbox mb-3">
-            <label>
-              <input type="checkbox" value="remember-me" /> Stay logged in{" "}
+          <div className="form-group">
+            <label for="inputPassword" className="sr-only">
+              price
             </label>
+            <input
+              type="text"
+              id="inputPassword"
+              className="form-control form-control-lg"
+              placeholder="price"
+              required=""
+              name="text"
+             
+            />
           </div>
-          <button className="btn btn-lg btn-primary btn-block" type="submit">
-            Let me in
+        
+          <button className="btn btn-lg btn-primary btn-block mt-5" type="submit">
+          add
           </button>
           <p className="mt-5 mb-3 text-muted">© SyMe2020</p>
         </form>
