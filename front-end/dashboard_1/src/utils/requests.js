@@ -16,19 +16,19 @@ export async function getAllAppartement() {
 }
 
 export async function getAppartementById(id) {
-  const res = await axios.get(`${host}/api/appartemet/${id}`);
+  const res = await axios.get(`${host}/api/appartement/${id}`);
   return res.data;
 }
-export async function addAppartement(product) {
-  const res = await axios.post(`${host}/api/appartemet/`, product);
+export async function addAppartement(appartement) {
+  const res = await axios.post(`${host}/api/appartement/`, appartement);
   return res.data;
 }
 export async function deleteAppartement(id) {
-  const res = await axios.delete(`${host}/api/appartemet/${id}`);
+  const res = await axios.delete(`${host}/api/appartement/${id}`);
   return res.data;
 }
 export async function updateAppartement(id, product) {
-  const res = await axios.put(`${host}/api/products/${id}`, product);
+  const res = await axios.put(`${host}/api/appartement/${id}`, product);
   return res.data;
 }
 

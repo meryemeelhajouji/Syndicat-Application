@@ -24,7 +24,7 @@ function Dashboard() {
             <h2 className="text-xl font-bold text-gray-800 mb-3">
               Les Commandes <hr className="my-2 p-0" />
             </h2>
-            <Table />
+            {/* <Table /> */}
           </div>
           <div className="my-6">
             <h2 className="text-xl font-bold text-gray-800 mb-3">

@@ -65,9 +65,7 @@ const updateAppartement = async (req, res, next) => {
   try {
    
     if (await Appartement.updateOne({ _id: idAppartement}, { ...body }))
-      res.status(201).send("updated successfully");
-    
-    
+      res.status(201).send("updated successfully"); 
      else  res.status(400).send("Appartement dont  existe");
   } catch (error) {
     next(error);
