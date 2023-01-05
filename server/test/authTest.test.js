@@ -29,7 +29,7 @@ describe("client", () => {
       tel: "1234567890",
     });
   });
-  expect(res.statusCode).toEqual(200);
+  expect(res.statusCode).toEqual(201);
 });
 it("Delete client", async () => {
   const res = await supertest(app).delete(

@@ -1,15 +1,9 @@
 import React from "react";
 import {
-  MdOutlineDashboard,
   RiShoppingBasket2Line,
-  BiMessageSquare,
   FiUsers,
   AiOutlineTag,
   IoPricetagsOutline,
-  MdOutlineAnalytics,
-  AiOutlineFileText,
-  AiOutlineSetting,
-  IoMdLogOut,
 } from "../../assets/icons/index";
 
 function Card() {

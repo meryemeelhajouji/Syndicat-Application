@@ -2,245 +2,42 @@ import React from "react";
 
 function Table() {
   return (
-    <div className="w-full">
-      <table className="table">
-        <thead>
-          <tr>
-            <th>Réf</th>
-            <th>Date de création</th>
-            <th>Client</th>
-            <th>Statut de paiement</th>
-            <th>Statut d’envoi</th>
-            <th>Total</th>
-            <th>Actions</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td className="font-bold">#011</td>
-            <td>2022-12-19 09:53:49</td>
-            <td>Abderrazzaq Mars</td>
-            <td className="text-red-600">Non Payé</td>
-            <td className="text-color-primary">En Cours</td>
-            <td>199</td>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-color-primary hover:text-white">Modifier</button>
-            </th>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-red-600 hover:text-white">Suprimer</button>
-            </th>
-          </tr>
-          <tr>
-            <td className="font-bold">#011</td>
-            <td>2022-12-19 09:53:49</td>
-            <td>Abderrazzaq Mars</td>
-            <td className="text-red-600">Non Payé</td>
-            <td className="text-color-primary">En Cours</td>
-            <td>199</td>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-color-primary hover:text-white">Modifier</button>
-            </th>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-red-600 hover:text-white">Suprimer</button>
-            </th>
-          </tr>
-          <tr>
-            <td className="font-bold">#011</td>
-            <td>2022-12-19 09:53:49</td>
-            <td>Abderrazzaq Mars</td>
-            <td className="text-red-600">Non Payé</td>
-            <td className="text-color-primary">En Cours</td>
-            <td>199</td>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-color-primary hover:text-white">Modifier</button>
-            </th>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-red-600 hover:text-white">Suprimer</button>
-            </th>
-          </tr>
-          <tr>
-            <td className="font-bold">#011</td>
-            <td>2022-12-19 09:53:49</td>
-            <td>Abderrazzaq Mars</td>
-            <td className="text-red-600">Non Payé</td>
-            <td className="text-color-primary">En Cours</td>
-            <td>199</td>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-color-primary hover:text-white">Modifier</button>
-            </th>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-red-600 hover:text-white">Suprimer</button>
-            </th>
-          </tr>
-          <tr>
-            <td className="font-bold">#011</td>
-            <td>2022-12-19 09:53:49</td>
-            <td>Abderrazzaq Mars</td>
-            <td className="text-red-600">Non Payé</td>
-            <td className="text-color-primary">En Cours</td>
-            <td>199</td>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-color-primary hover:text-white">Modifier</button>
-            </th>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-red-600 hover:text-white">Suprimer</button>
-            </th>
-          </tr>
-          <tr>
-            <td className="font-bold">#011</td>
-            <td>2022-12-19 09:53:49</td>
-            <td>Abderrazzaq Mars</td>
-            <td className="text-red-600">Non Payé</td>
-            <td className="text-color-primary">En Cours</td>
-            <td>199</td>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-color-primary hover:text-white">Modifier</button>
-            </th>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-red-600 hover:text-white">Suprimer</button>
-            </th>
-          </tr>
-          <tr>
-            <td className="font-bold">#011</td>
-            <td>2022-12-19 09:53:49</td>
-            <td>Abderrazzaq Mars</td>
-            <td className="text-red-600">Non Payé</td>
-            <td className="text-color-primary">En Cours</td>
-            <td>199</td>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-color-primary hover:text-white">Modifier</button>
-            </th>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-red-600 hover:text-white">Suprimer</button>
-            </th>
-          </tr>
-          <tr>
-            <td className="font-bold">#011</td>
-            <td>2022-12-19 09:53:49</td>
-            <td>Abderrazzaq Mars</td>
-            <td className="text-red-600">Non Payé</td>
-            <td className="text-color-primary">En Cours</td>
-            <td>199</td>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-color-primary hover:text-white">Modifier</button>
-            </th>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-red-600 hover:text-white">Suprimer</button>
-            </th>
-          </tr>
-          <tr>
-            <td className="font-bold">#011</td>
-            <td>2022-12-19 09:53:49</td>
-            <td>Abderrazzaq Mars</td>
-            <td className="text-red-600">Non Payé</td>
-            <td className="text-color-primary">En Cours</td>
-            <td>199</td>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-color-primary hover:text-white">Modifier</button>
-            </th>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-red-600 hover:text-white">Suprimer</button>
-            </th>
-          </tr>
-          <tr>
-            <td className="font-bold">#011</td>
-            <td>2022-12-19 09:53:49</td>
-            <td>Abderrazzaq Mars</td>
-            <td className="text-red-600">Non Payé</td>
-            <td className="text-color-primary">En Cours</td>
-            <td>199</td>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-color-primary hover:text-white">Modifier</button>
-            </th>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-red-600 hover:text-white">Suprimer</button>
-            </th>
-          </tr>
-          <tr>
-            <td className="font-bold">#011</td>
-            <td>2022-12-19 09:53:49</td>
-            <td>Abderrazzaq Mars</td>
-            <td className="text-red-600">Non Payé</td>
-            <td className="text-color-primary">En Cours</td>
-            <td>199</td>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-color-primary hover:text-white">Modifier</button>
-            </th>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-red-600 hover:text-white">Suprimer</button>
-            </th>
-          </tr>
-          <tr>
-            <td className="font-bold">#011</td>
-            <td>2022-12-19 09:53:49</td>
-            <td>Abderrazzaq Mars</td>
-            <td className="text-red-600">Non Payé</td>
-            <td className="text-color-primary">En Cours</td>
-            <td>199</td>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-color-primary hover:text-white">Modifier</button>
-            </th>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-red-600 hover:text-white">Suprimer</button>
-            </th>
-          </tr>
-          <tr>
-            <td className="font-bold">#011</td>
-            <td>2022-12-19 09:53:49</td>
-            <td>Abderrazzaq Mars</td>
-            <td className="text-red-600">Non Payé</td>
-            <td className="text-color-primary">En Cours</td>
-            <td>199</td>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-color-primary hover:text-white">Modifier</button>
-            </th>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-red-600 hover:text-white">Suprimer</button>
-            </th>
-          </tr><tr>
-            <td className="font-bold">#011</td>
-            <td>2022-12-19 09:53:49</td>
-            <td>Abderrazzaq Mars</td>
-            <td className="text-red-600">Non Payé</td>
-            <td className="text-color-primary">En Cours</td>
-            <td>199</td>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-color-primary hover:text-white">Modifier</button>
-            </th>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-red-600 hover:text-white">Suprimer</button>
-            </th>
-          </tr><tr>
-            <td className="font-bold">#011</td>
-            <td>2022-12-19 09:53:49</td>
-            <td>Abderrazzaq Mars</td>
-            <td className="text-red-600">Non Payé</td>
-            <td className="text-color-primary">En Cours</td>
-            <td>199</td>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-color-primary hover:text-white">Modifier</button>
-            </th>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-red-600 hover:text-white">Suprimer</button>
-            </th>
-          </tr><tr>
-            <td className="font-bold">#011</td>
-            <td>2022-12-19 09:53:49</td>
-            <td>Abderrazzaq Mars</td>
-            <td className="text-red-600">Non Payé</td>
-            <td className="text-color-primary">En Cours</td>
-            <td>199</td>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-color-primary hover:text-white">Modifier</button>
-            </th>
-            <th>
-              <button className="btn btn-ghost btn-xs hover:bg-red-600 hover:text-white">Suprimer</button>
-            </th>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <div className="overflow-x-auto card shadow-xl">
+    <table className="table w-full">
+   
+      <thead>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Job</th>
+          <th>Favorite Color</th>
+        </tr>
+      </thead>
+      <tbody>
+       
+        <tr>
+          <th>1</th>
+          <td>Cy Ganderton</td>
+          <td>Quality Control Specialist</td>
+          <td>Blue</td>
+        </tr>
+       
+        <tr>
+          <th>2</th>
+          <td>Hart Hagerty</td>
+          <td>Desktop Support Technician</td>
+          <td>Purple</td>
+        </tr>
+       
+        <tr>
+          <th>3</th>
+          <td>Brice Swyre</td>
+          <td>Tax Accountant</td>
+          <td>Red</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   );
 }
 
