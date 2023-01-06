@@ -1,34 +1,40 @@
 import React from "react";
 import { Navbar, Sidebar } from "../../components/dashboard/index";
 import { useEffect, useState } from "react";
-import {getAllAppartement} from "../../utils/requests"
-import { NavLink } from "react-router-dom";
-import { deleteAppartement } from "../../utils/requests";
+import {getAllClient} from "../../utils/requests"
+import { NavLink , useNavigate } from "react-router-dom";
+import { deleteClient } from "../../utils/requests";
 
 
-function Appartement() {
-  const [appartement, setAppartement] = useState([]);
+
+function Client() {
+  const [client, setClient] = useState([]);
   const [ setError] = useState(false);
 
   const [SetSuccess]=useState()
   const [SetError]=useState()
+  
+  const navigate = useNavigate();
 
   useEffect(() => {
-    getAllAppartement()
+    getAllClient()
       .then((response) => {
         console.log(response)
-        setAppartement(response.appartement);
+        setClient(response.client);
       })
       .catch((error) => {
         setError(true);
       });
   }, []);
   const onDelete = (_id) => {
-    deleteAppartement(_id)
+    deleteClient(_id)
       .then((res) => {
-          if(res.status===201) SetSuccess(res.data)
-          else SetError(res.data)
-        window.location.reload(false);
+          if(res.status===201) 
+          SetSuccess(res.data)
+          
+          else
+           SetError(res.data)
+        
       })
       .catch((e) => console.log(e));
   };
@@ -46,13 +52,13 @@ function Appartement() {
         <div className="m-3 w-100">
           <div>
             <h2 className="text-xl font-bold text-gray-800 mb-3">
-              /appartement <hr className="my-2 p-0" />
+              /client <hr className="my-2 p-0" />
             </h2>
            
           </div>
           <div className="my-6">
             <h2 className="text-xl font-bold text-gray-800 mb-3">
-              Les Appartement <hr className="my-2 p-0" />
+              Les Client <hr className="my-2 p-0" />
             </h2>
         
 
@@ -60,19 +66,19 @@ function Appartement() {
             <div className="overflow-x-auto card shadow-xl">
             <div className="navbar bg-base-100">
               <div className="navbar-start">
-                <p className="btn btn-ghost normal-case text-xl">appartement</p>
+                <p className="btn btn-ghost normal-case text-xl">client</p>
               </div>
               <div className="navbar-center hidden lg:flex"></div>
               <div className="navbar-end">
                 <NavLink
                   end
-                  to="/addAppartement"
+                  to="/addClient"
                   className={`
                         }`}
                 >
                   {" "}
                   <button className="btn btn-active btn-primary">
-                    Add Appartement
+                    Add Client
                   </button>
                 </NavLink>
               </div>
@@ -80,20 +86,18 @@ function Appartement() {
             <table className="table w-full">
               <tr className="text-black">
                 <th></th>
-                <th>numero</th>
-                <th>loue</th>
-                <th>Surface </th>
-                <th>prix </th>
+                <th>name</th>
+                <th>CIN</th>
+                <th>Tele </th>
                 <th>action </th>
               </tr>
-              {appartement.map((app) => (
+              {client.map((app) => (
               <tbody>
                 <tr>
                   <th></th>
-                  <td>{app.numero}</td>
-                  <td>{app.loue} </td>
-                  <td>{app.surface}</td>
-                  <td>{app.prix}</td>
+                  <td>{app.name}</td>
+                  <td>{app.cin} </td>
+                  <td>{app.tel}</td>
                   <td>
                     <button className="btn  btn-primary  mt-5" 
                     onClick={() => onDelete(app._id)}>
@@ -114,4 +118,4 @@ function Appartement() {
   );
 }
 
-export default Appartement;
+export default Client;

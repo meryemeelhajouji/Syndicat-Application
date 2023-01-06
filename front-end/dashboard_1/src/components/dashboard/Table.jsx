@@ -6,8 +6,8 @@ import { useState } from 'react';
 
 function Table({ appartement }) {
   const { numero, loue, surface, prix, _id } = appartement;
-  const [Success,SetSuccess]=useState()
-  const [Error,SetError]=useState()
+  const [SetSuccess]=useState()
+  const [SetError]=useState()
 
   const onDelete = (_id) => {
     deleteAppartement(_id)

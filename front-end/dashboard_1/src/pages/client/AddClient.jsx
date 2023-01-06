@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { Navbar, Sidebar } from "../../components/dashboard/index";
-import { addAppartement } from "../../utils/requests";
+import { addClient } from "../../utils/requests";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
-function AddAppartement() {
-  const [apparetemet, setAppartement] = useState(false);
+function AddClient() {
+  const [client, setClient] = useState(false);
   const [myError, setError] = useState(false);
 
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setAppartement(() => ({
-      ...apparetemet,
+    setClient(() => ({
+      ...client,
       [e.target.name]: e.target.value,
     }));
   };
@@ -20,18 +20,18 @@ function AddAppartement() {
   const handleSubmit = (e) => {
     setError(false);
     e.preventDefault();
-    addAppartement(apparetemet)
+    addClient(client)
       .then((response) => {
         console.log(response.message);
-        setAppartement(true);
+        setClient(true);
         setError(null);
-        navigate("/appartement");
+        navigate("/client");
       })
       .catch(function (error) {
         setError(error.response.data.message);
-        setAppartement(false);
+        setClient(false);
         toast.error(error.response.data.message);
-        if (apparetemet === false) {
+        if (client === false) {
           console.log(myError);
         }
       });
@@ -61,43 +61,43 @@ function AddAppartement() {
                 <h1 className="h6 mb-3 mt-5">add</h1>
                 <div className="form-group">
                   <label for="inputEmail" className="sr-only">
-                    Numero
+                    name
                   </label>
                   <input
                     type="text"
                     id="inputEmail"
                     className="form-control form-control-lg"
-                    placeholder="numero"
+                    placeholder="name"
                     required=""
-                    name="numero"
+                    name="name"
                     onChange={handleChange}
                   />
                 </div>
                 <div className="form-group">
                   <label for="inputPassword" className="sr-only">
-                    surface
+                    CIN
                   </label>
                   <input
                     type="text"
                     id="inputPassword"
                     className="form-control form-control-lg"
-                    placeholder="surface"
+                    placeholder="cin"
                     required=""
-                    name="surface"
+                    name="cin"
                     onChange={handleChange}
                   />
                 </div>
                 <div className="form-group">
                   <label for="inputPassword" className="sr-only">
-                    price
+                    Tele
                   </label>
                   <input
                     type="text"
                     id="inputPassword"
                     className="form-control form-control-lg"
-                    placeholder="price"
+                    placeholder="tele"
                     required=""
-                    name="prix"
+                    name="tel"
                     onChange={handleChange}
                   />
                 </div>
@@ -119,4 +119,4 @@ function AddAppartement() {
   );
 }
 
-export default AddAppartement;
+export default AddClient;

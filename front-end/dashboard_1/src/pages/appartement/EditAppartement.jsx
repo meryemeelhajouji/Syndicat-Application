@@ -4,7 +4,7 @@ import { addAppartement } from "../../utils/requests";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
-function AddAppartement() {
+function EditAppartement() {
   const [apparetemet, setAppartement] = useState(false);
   const [myError, setError] = useState(false);
 
@@ -119,4 +119,4 @@ function AddAppartement() {
   );
 }
 
-export default AddAppartement;
+export default EditAppartement;

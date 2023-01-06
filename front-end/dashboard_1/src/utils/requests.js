@@ -34,3 +34,26 @@ export async function updateAppartement(id, product) {
 
 
 
+
+// client API
+export async function getAllClient() {
+  const res = await axios.get(`${host}/api/client/`);
+  return res.data;
+}
+
+export async function getClientById(id) {
+  const res = await axios.get(`${host}/api/client/${id}`);
+  return res.data;
+}
+export async function addClient(client) {
+  const res = await axios.post(`${host}/api/client/`, client);
+  return res.data;
+}
+export async function deleteClient(id) {
+  const res = await axios.delete(`${host}/api/client/${id}`);
+  return res.data;
+}
+export async function updateClient(id, product) {
+  const res = await axios.put(`${host}/api/client/${id}`, product);
+  return res.data;
+}
