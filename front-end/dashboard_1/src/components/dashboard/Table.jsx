@@ -1,8 +1,24 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { deleteAppartement } from "../../utils/requests";
+import { useState } from 'react';
+
 
 function Table({ appartement }) {
-  const { numero, loue, surface, prix } = appartement;
+  const { numero, loue, surface, prix, _id } = appartement;
+  const [Success,SetSuccess]=useState()
+  const [Error,SetError]=useState()
+
+  const onDelete = (_id) => {
+    deleteAppartement(_id)
+      .then((res) => {
+          if(res.status===201) SetSuccess(res.data)
+          else SetError(res.data)
+        window.location.reload(false);
+      })
+      .catch((e) => console.log(e));
+  };
+  
 
   return (
     <div className="overflow-x-auto card shadow-xl">
@@ -42,7 +58,12 @@ function Table({ appartement }) {
             <td>{loue} </td>
             <td>{surface}</td>
             <td>{prix}</td>
-            <td></td>
+            <td>
+              <button className="btn  btn-primary  mt-5" 
+              onClick={() => onDelete(_id)}>
+                Supp{" "}
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -51,3 +72,4 @@ function Table({ appartement }) {
 }
 
 export default Table;
+

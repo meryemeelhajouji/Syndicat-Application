@@ -12,7 +12,7 @@ const Client = require('../Models/Client');
 const addAppartement = async (req, res, next) => {
    try {
     const { body } = req;
-    if (!await Appartement.findOne({ id: req.body.id })){
+    if (await Appartement.findOne({ id: req.body.id })){
          if (await Appartement.create({ ...body })){
               res.status(201).send("created successfully");
          } else res.status(400).json("some thing worning"); 

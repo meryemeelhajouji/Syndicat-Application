@@ -1,13 +1,17 @@
 import React from "react";
-import { Navbar, Sidebar, Table } from "../../components/dashboard/index";
+import { Navbar, Sidebar } from "../../components/dashboard/index";
 import { useEffect, useState } from "react";
 import {getAllAppartement} from "../../utils/requests"
+import { NavLink } from "react-router-dom";
+import { deleteAppartement } from "../../utils/requests";
 
 
 function Appartement() {
   const [appartement, setAppartement] = useState([]);
   const [error, setError] = useState(false);
 
+  const [Success,SetSuccess]=useState()
+  const [Error,SetError]=useState()
 
   useEffect(() => {
     getAllAppartement()
@@ -19,6 +23,16 @@ function Appartement() {
         setError(true);
       });
   }, []);
+  const onDelete = (_id) => {
+    deleteAppartement(_id)
+      .then((res) => {
+          if(res.status===201) SetSuccess(res.data)
+          else SetError(res.data)
+        window.location.reload(false);
+      })
+      .catch((e) => console.log(e));
+  };
+  
 
   return (
     <div className="bg-gray-300 h-screen flex-col">
@@ -42,9 +56,56 @@ function Appartement() {
             </h2>
         
 
-            {appartement.map((app) => (
-          <Table key={app.id} appartement={app} />
-        ))}
+         
+            <div className="overflow-x-auto card shadow-xl">
+            <div className="navbar bg-base-100">
+              <div className="navbar-start">
+                <p className="btn btn-ghost normal-case text-xl">appartement</p>
+              </div>
+              <div className="navbar-center hidden lg:flex"></div>
+              <div className="navbar-end">
+                <NavLink
+                  end
+                  to="/addAppartement"
+                  className={`
+                        }`}
+                >
+                  {" "}
+                  <button className="btn btn-active btn-primary">
+                    Add Appartement
+                  </button>
+                </NavLink>
+              </div>
+            </div>
+            <table className="table w-full">
+              <tr className="text-black">
+                <th></th>
+                <th>numero</th>
+                <th>loue</th>
+                <th>Surface </th>
+                <th>prix </th>
+                <th>action </th>
+              </tr>
+              {appartement.map((app) => (
+              <tbody>
+                <tr>
+                  <th>1</th>
+                  <td>{app.numero}</td>
+                  <td>{app.loue} </td>
+                  <td>{app.surface}</td>
+                  <td>{app.prix}</td>
+                  <td>
+                    <button className="btn  btn-primary  mt-5" 
+                    onClick={() => onDelete(app._id)}>
+                      Supp{" "}
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+                ))}
+            </table>
+          </div>
+      
           </div>
         
         </div>

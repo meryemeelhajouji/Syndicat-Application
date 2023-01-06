@@ -25,13 +25,13 @@ function Appartement() {
         console.log(response.message);
         setAppartement(true);
         setError(null);
-        // navigate("/dashboard");
+        navigate("/dashboard");
       })
       .catch(function (error) {
         setError(error.response.data.message);
         setAppartement(false);
         toast.error(error.response.data.message);
-        if (apparetemet == false) {
+        if (apparetemet === false) {
           console.log(myError);
         }
       });
