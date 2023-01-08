@@ -12,9 +12,9 @@ const Client = require('../Models/Client');
 const addAppartement = async (req, res, next) => {
    try {
     const { body } = req;
-    if (await Appartement.findOne({ id: req.body.id })){
+    if (!await Appartement.findOne({ id: req.body.id })){
          if (await Appartement.create({ ...body })){
-              res.status(201).send("created successfully");
+              res.status(200).send("created successfully");
          } else res.status(400).json("some thing worning"); 
     }
     else  res.status(400).send("already existe");
@@ -34,7 +34,7 @@ const addAppartement = async (req, res, next) => {
 const getAllAppartement = async (req, res, next) => {
   try {
     const appartement = await Appartement.find().populate({path:"client_id",model:Client});
-    res.status(201).json({
+    res.status(200).json({
       success: true,
       appartement: appartement,
     });
@@ -65,7 +65,7 @@ const updateAppartement = async (req, res, next) => {
   try {
    
     if (await Appartement.updateOne({ _id: idAppartement}, { ...body }))
-      res.status(201).send("updated successfully"); 
+      res.status(200).send("updated successfully"); 
      else  res.status(400).send("Appartement dont  existe");
   } catch (error) {
     next(error);
@@ -81,7 +81,7 @@ const deleteAppartement = async (req, res, next) => {
   let idAppartement = req.params.id;
   try {
     if(await Appartement.deleteOne({_id:idAppartement})) 
-     res.status(201).send("Appartement deleted successfully");
+     res.status(200).send("Appartement deleted successfully");
   } catch (error) {
     res.status(400).send(error);
   }

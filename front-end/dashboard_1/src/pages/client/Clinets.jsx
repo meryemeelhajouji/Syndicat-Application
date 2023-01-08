@@ -12,7 +12,7 @@ function Client() {
   const [ setError] = useState(false);
 
   const [SetSuccess]=useState()
-  const [SetError]=useState()
+  const [SetError]=useState(false)
   
   const navigate = useNavigate();
 
@@ -26,13 +26,14 @@ function Client() {
         setError(true);
       });
   }, []);
-  const onDelete = (_id) => {
+  const onDelete = (_id ,e) => {
+    e.preventDefault();
     deleteClient(_id)
       .then((res) => {
-          if(res.status===201) 
-          SetSuccess(res.data)
-          
-          else
+          if(res.status===201) {
+               SetSuccess(res.data)
+          navigate("/client")
+          } else
            SetError(res.data)
         
       })
@@ -100,7 +101,7 @@ function Client() {
                   <td>{app.tel}</td>
                   <td>
                     <button className="btn  btn-primary  mt-5" 
-                    onClick={() => onDelete(app._id)}>
+                    onClick={(e) => onDelete(app._id, e)}>
                       Supp{" "}
                     </button>
                   </td>

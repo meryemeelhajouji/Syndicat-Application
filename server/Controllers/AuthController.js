@@ -92,7 +92,7 @@ const register = (req, res) => {
   const { body } = req;
   User.findOne({ email: body.email }).then((e) => {
     if (!e) {
-      const token = jwt.sign({ id: User._id }, process.env.SECRET);
+      const token = tokenGenerator.sign({ id: User._id }, process.env.SECRET);
       body.token = token;
       bcrypt
         .hash(body.password, 10)

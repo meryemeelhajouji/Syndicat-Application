@@ -68,7 +68,7 @@ const updateClient = async (req, res, next) => {
   const { body } = req;
   try {
     if (await Client.updateOne({ _id: idClient }, { ...body }))
-      res.status(201).send("updated successfully");
+      res.status(200).send("updated successfully");
     else res.status(400).send("client dont  existe");
   } catch (error) {
     next(error);
@@ -84,7 +84,7 @@ const deleteClient = async (req, res, next) => {
   let idClient = req.params.id;
   try {
     if (await Client.deleteOne({ _id: idClient }))
-      res.status(201).send("client deleted successfully");
+      res.status(200).send("client deleted successfully");
   } catch (error) {
     res.status(400).send(error);
   }
