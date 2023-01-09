@@ -15,6 +15,8 @@ app.use(express.json());
 const routerAuth = require("./Routes/authRoute");
 const routerClient = require("./Routes/clientRoute");
 const routerAppartemet= require("./Routes/appartemetRoute");
+const routerPaiement= require("./Routes/paiementRoute");
+
 
 
 
@@ -28,6 +30,8 @@ const errorhandler = require('./Middlewares/errorHandler');
 app.use("/api/auth", routerAuth);
 app.use("/api/client", routerClient);
 app.use("/api/appartement", routerAppartemet);
+app.use("/api/paiement", routerPaiement);
+
 
 
 
