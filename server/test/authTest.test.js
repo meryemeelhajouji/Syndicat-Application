@@ -93,3 +93,34 @@ it("Get appartement", async () => {
 });
 
 });
+
+
+//test paiement
+describe("paiement", () => {
+  it("Add ", async () => {
+    const res = await supertest(app).post("/api/paiement").send({
+      Date: "2024/12/02",
+    });
+    expect(res.statusCode).toEqual(200);
+  });
+ 
+
+it("Delete paiement", async () => {
+  const res = await supertest(app).delete(
+    "/api/paiement/63b1f04f028ba228eb945e02"
+  );
+  expect(res.statusCode).toEqual(200);
+});
+it("Modifier paiement", async () => {
+  const res = await supertest(app)
+    .patch("/api/paiement/63b1f04f028ba228eb945e02")
+    .send({
+      Date: "2023/12/02",
+    });
+  expect(res.statusCode).toEqual(200);
+});
+  it("Get paiement", async () => {
+    const res = await supertest(app).get("/api/paiement");
+    expect(res.statusCode).toEqual(200);
+  });
+});
