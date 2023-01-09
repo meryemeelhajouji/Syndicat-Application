@@ -10,18 +10,30 @@ const Client = require('../Models/Client');
  * ACCESS: private
  */
 const addAppartement = async (req, res, next) => {
-   try {
-    const { body } = req;
-    if (!await Appartement.findOne({ id: req.body.id })){
-         if (await Appartement.create({ ...body })){
-              res.status(200).send("created successfully");
-         } else res.status(400).json("some thing worning"); 
+
+  try {
+    const { numero, surface, prix } = req.body;
+
+    console.log(req.body);
+
+    const existed = await Appartement.findOne({ numero });
+    if (existed) {
+      throw new Error("client already exist");
     }
-    else  res.status(400).send("already existe");
-  
-  } catch (error) {
-    // next(error);
-    res.status(400).send(error);
+
+    const appartement = await Appartement.create({
+      numero,
+      surface,
+      prix,
+    });
+
+    res.status(200).json({
+      success: true,
+      appartement,
+    });
+  } catch (err) {
+    err.status = 400;
+    next(err);
   }
  
 };
