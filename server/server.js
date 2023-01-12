@@ -22,7 +22,6 @@ const routerPaiement= require("./Routes/paiementRoute");
 
 
 // //Middleware
-// const {errorHandler}= require('./Middlewares/errorMiddleware')
 const {routeErrorHandler}= require('./Middlewares/routeErrorHandler')
 const errorhandler = require('./Middlewares/errorHandler');
 
@@ -37,7 +36,6 @@ app.use("/api/paiement", routerPaiement);
 
 
 // //Middleware
-// app.use(errorHandler)
 app.use(routeErrorHandler)
 app.use(errorhandler);
 

@@ -77,13 +77,9 @@ function Login() {
               onChange={handleChange}
             />
           </div>
-          <div className="checkbox mb-3">
-            <label>
-              <input type="checkbox" value="remember-me" /> Stay logged in{" "}
-            </label>
-          </div>
+       
           <button className="btn btn-lg btn-primary btn-block" type="submit">
-            Let me in
+           Login
           </button>
           <p className="mt-5 mb-3 text-muted">© SyMe2020</p>
         </form>
