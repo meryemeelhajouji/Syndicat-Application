@@ -27,8 +27,8 @@ export async function deleteAppartement(id) {
   const res = await axios.delete(`${host}/api/appartement/${id}`);
   return res.data;
 }
-export async function updateAppartement(id, product) {
-  const res = await axios.put(`${host}/api/appartement/${id}`, product);
+export async function updateAppartement(id, appartement) {
+  const res = await axios.put(`${host}/api/appartement/${id}`, appartement);
   return res.data;
 }
 
@@ -53,7 +53,32 @@ export async function deleteClient(id) {
   const res = await axios.delete(`${host}/api/client/${id}`);
   return res.data;
 }
-export async function updateClient(id, product) {
-  const res = await axios.put(`${host}/api/client/${id}`, product);
+export async function updateClient(id, client) {
+  const res = await axios.put(`${host}/api/client/${id}`, client);
+  return res.data;
+}
+
+
+
+// paiement API
+export async function getAllPaiement() {
+  const res = await axios.get(`${host}/api/paiement/`);
+  return res.data;
+}
+
+export async function getPaiementById(id) {
+  const res = await axios.get(`${host}/api/paiement/${id}`);
+  return res.data;
+}
+export async function addPaiement(paiement) {
+  const res = await axios.post(`${host}/api/paiement/`, paiement);
+  return res.data;
+}
+export async function deletePaiement(id) {
+  const res = await axios.delete(`${host}/api/paiement/${id}`);
+  return res.data;
+}
+export async function updatePaiement(id, paiement) {
+  const res = await axios.put(`${host}/api/paiement/${id}`, paiement);
   return res.data;
 }

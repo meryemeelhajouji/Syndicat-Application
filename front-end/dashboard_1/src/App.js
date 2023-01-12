@@ -9,6 +9,10 @@ import Appartement from "./pages/appartement/Appartement";
 import AddAppartement from "./pages/appartement/AddAppartement";
 import Client from "./pages/client/Clinets";
 import AddClient from "./pages/client/AddClient";
+import Paiement from "./pages/paiement/Paiement";
+import AddPaiement from "./pages/paiement/AddPaiement";
+
+
 
 
 function App() {
@@ -23,6 +27,9 @@ function App() {
 
           <Route path="/client" element={<Client />} />
           <Route path="/addClient" element={<AddClient />} />
+
+          <Route path="/paiement" element={<Paiement />} />
+          <Route path="/addpaiement" element={<AddPaiement />} />
 
 
           {/* <Route path="*" element={<Navigate to="/" />} /> */}
