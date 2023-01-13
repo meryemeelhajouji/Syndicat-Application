@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { loginUser } from "../utils/requests";
 
 function Login() {
+  const token = localStorage.getItem("token");
   const [user, setUser] = useState();
   const [myError, setError] = useState(false);
 
@@ -22,6 +23,9 @@ function Login() {
     e.preventDefault();
     loginUser(user)
       .then((response) => {
+        
+        localStorage.setItem("token", response.token) 
+        console.log(token)
         navigate("/dashboard");
 
       })

@@ -38,44 +38,13 @@ const login = async (req, res, next) => {
    res.status(200).json({
       success: true,
       user,
+      token,
     });
   } catch (error) {
     next(error);
   }
 
-  // if (!req.body.email || !req.body.password) {
-  //   res.status(400).send(" please enter email or name or password ");
-  // }
-  // const { body } = req;
-  // User.findOne({ email: body.email }).then((e) => {
-  //   const user = e;
-  //   if (e) {
-  //     bcrypt
-  //       .compare(body.password, e.password)
-  //       .then((e) => {
-  //         if (e) {
 
-  //             const token = jwt.sign({ user }, process.env.SECRET, {
-  //               expiresIn: "120m",
-  //             });
-  //             local_storage("token", token);
-  //             // res.status(200).json({ token: local_storage("token") });
-  //             res.status(200).json({
-  //               success: true,
-  //               user,
-  //             });
-
-  //         } else {
-  //           res.status(401).send("passsord invalid // unauthorized");
-  //         }
-  //       })
-  //       .catch(() => {
-  //         res.send("not hashed");
-  //       });
-  //   } else {
-  //     res.status(404).send("user not found");
-  //   }
-  // });
 };
 
 // method : post
