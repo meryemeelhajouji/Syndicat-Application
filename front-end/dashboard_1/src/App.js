@@ -11,6 +11,8 @@ import Client from "./pages/client/Clinets";
 import AddClient from "./pages/client/AddClient";
 import Paiement from "./pages/paiement/Paiement";
 import AddPaiement from "./pages/paiement/AddPaiement";
+import ProtectRoute  from "./utils/ProtectRoute";
+
 
 
 
@@ -21,16 +23,20 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/appartement" element={<Appartement />} />
-          <Route path="/addAppartement" element={<AddAppartement />} />
+         
 
-          <Route path="/client" element={<Client />} />
-          <Route path="/addClient" element={<AddClient />} />
+          <Route element={<ProtectRoute />}>
+              <Route path="/dashboard" element={<Dashboard />} />
+              
+              <Route path="/appartement" element={<Appartement />} />
+              <Route path="/addAppartement" element={<AddAppartement />} />
 
-          <Route path="/paiement" element={<Paiement />} />
-          <Route path="/addpaiement" element={<AddPaiement />} />
+              <Route path="/client" element={<Client />} />
+              <Route path="/addClient" element={<AddClient />} />
 
+              <Route path="/paiement" element={<Paiement />} />
+              <Route path="/addpaiement" element={<AddPaiement />} />
+        </Route>
 
           {/* <Route path="*" element={<Navigate to="/" />} /> */}
         </Routes>
