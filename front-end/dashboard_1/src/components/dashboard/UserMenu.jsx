@@ -1,13 +1,19 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { UserContext } from "../../context/UserContext";
 
-import {FaUserCircle} from '../../assets/icons/index';
+// import {FaUserCircle} from '../../assets/icons/index';
 
 function UserMenu() {
+  const {user,setUser} = useContext(UserContext)
+
+  setUser(localStorage.getItem("name"))
+
     const navigate = useNavigate()
     function logOut()
     {
       localStorage.clear();
+      setUser({});
       navigate("/")
     }
 
@@ -19,7 +25,7 @@ function UserMenu() {
 
 <div className="dropdown">
   <div>
-  <label tabIndex={0} className=" m-1"> Bonjour mery</label>
+  <label tabIndex={0} className=" m-1"> Bonjour   {user}</label>
   {/* <FaUserCircle/> */}
   </div>
 
@@ -27,6 +33,7 @@ function UserMenu() {
     <li> <button className=" btn-ghost" 
      onClick={logOut}
      >Logout</button> </li>
+
 
  
   

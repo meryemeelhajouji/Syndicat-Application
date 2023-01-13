@@ -17,7 +17,7 @@ import { UserContext } from "./context/UserContext";
 
 
 function App() {
-  const [user,setUser] = useState("mery")
+  const [user,setUser] = useState("")
   return (
     <div>
       <Router>

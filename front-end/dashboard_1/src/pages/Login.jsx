@@ -25,7 +25,9 @@ function Login() {
       .then((response) => {
         
         localStorage.setItem("token", response.token) 
-        console.log(token)
+        localStorage.setItem("name", response.user.name) 
+
+        console.log(response.user.name)
         navigate("/dashboard");
 
       })
