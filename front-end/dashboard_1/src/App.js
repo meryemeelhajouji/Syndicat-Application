@@ -11,6 +11,8 @@ import Client from "./pages/client/Clinets";
 import AddClient from "./pages/client/AddClient";
 import Paiement from "./pages/paiement/Paiement";
 import AddPaiement from "./pages/paiement/AddPaiement";
+import Facture from "./pages/paiement/Facture";
+
 import ProtectRoute  from "./utils/ProtectRoute";
 import { UserContext } from "./context/UserContext";
 
@@ -36,6 +38,9 @@ function App() {
 
               <Route path="/paiement" element={<Paiement />} />
               <Route path="/addpaiement" element={<AddPaiement />} />
+
+              <Route path="/facture" element={<Facture />} />
+
 
           {/* <Route path="/" element={<Login />} /> */}
 
