@@ -14,7 +14,7 @@ const addAppartement = async (req, res, next) => {
 
     const existed = await Appartement.findOne({ numero: numero });
     if (existed) {
-      throw new Error("client already exist");
+      throw new Error("appartement already exist");
     }
 
     const appartement = await Appartement.create({
