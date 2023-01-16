@@ -58,7 +58,21 @@ function AddAppartement() {
             <div className="overflow-x-auto card shadow-xl">
               <form className="col-lg-3 col-md-4 col-10 mx-auto text-center"
                onSubmit={handleSubmit}>
-                <h1 className="h6 mb-3 mt-5">add</h1>
+                <h1 className="h6 mb-3 mt-5">add Appartement</h1>
+                <div className="form-group">
+                  <label for="inputEmail" className="sr-only">
+                  Adresse
+                  </label>
+                  <input
+                    type="text"
+                    id="inputEmail"
+                    className="form-control form-control-lg"
+                    placeholder="Adresse"
+                    required=""
+                    name="Adresse"
+                    onChange={handleChange}
+                  />
+                </div>
                 <div className="form-group">
                   <label for="inputEmail" className="sr-only">
                     Numero

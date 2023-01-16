@@ -79,7 +79,7 @@ function Paiement() {
               <tr className="text-black">
                 <th></th>
                 <th>date</th>
-               
+                <th>appartement</th> 
                 <th>action </th>
               </tr>
               {paiement.map((app) => (
@@ -87,6 +87,7 @@ function Paiement() {
                 <tr>
                   <th></th>
                   <td>{app.Date}</td>
+                  <td>{app.appartementid.numero}</td>
                   
                   <td>
                     <button className="btn  btn-primary  mt-5" 

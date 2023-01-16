@@ -81,6 +81,7 @@ function Appartement() {
               <tr className="text-black">
                 <th></th>
                 <th>numero</th>
+                <th>Adresse</th>
                 <th>loue</th>
                 <th>Surface </th>
                 <th>prix </th>
@@ -91,7 +92,8 @@ function Appartement() {
                 <tr>
                   <th></th>
                   <td>{app.numero}</td>
-                  <td>{app.loue} </td>
+                  <td>{app.Adresse}</td>
+                  <td>true </td>
                   <td>{app.surface}</td>
                   <td>{app.prix}</td>
                   <td>

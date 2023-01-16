@@ -1,13 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Navbar, Sidebar } from "../../components/dashboard/index";
-import { addPaiement } from "../../utils/requests";
+import { addPaiement, getAllAppartement } from "../../utils/requests";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
 function AddPaiement() {
   const [paiement, setPaiement] = useState(false);
   const [myError, setError] = useState(false);
+  const [appartement, setAppartement] = useState([]);
 
+  useEffect(() => {
+    getAllAppartement()
+      .then((response) => {
+        console.log(response);
+        setAppartement(response.appartement);
+      })
+      .catch((error) => {
+        setError(true);
+      });
+  }, []);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -56,12 +67,14 @@ function AddPaiement() {
               Les paiement <hr className="my-2 p-0" />
             </h2>
             <div className="overflow-x-auto card shadow-xl">
-              <form className="col-lg-3 col-md-4 col-10 mx-auto text-center"
-               onSubmit={handleSubmit}>
+              <form
+                className="col-lg-3 col-md-4 col-10 mx-auto text-center"
+                onSubmit={handleSubmit}
+              >
                 <h1 className="h6 mb-3 mt-5">add</h1>
                 <div className="form-group">
                   <label for="inputEmail" className="sr-only">
-                  Date
+                    Date
                   </label>
                   <input
                     type="date"
@@ -73,7 +86,27 @@ function AddPaiement() {
                     onChange={handleChange}
                   />
                 </div>
-             
+                <div className="form-group">
+                  <label for="inputEmail" className="sr-only">
+                    appartement
+                  </label>
+                  <select
+                    name="appartementid"
+                    className="form-control text-dark  "
+                    onChange={handleChange}
+                  >
+                    <option value={appartement}>
+                      --Please choose Appartement--
+                    </option>
+                    {appartement.map((app) => {
+                      return (
+                        <option value={app._id}>
+                          {app.numero}
+                        </option>
+                      );
+                    })}
+                  </select>
+                </div>
 
                 <button
                   className="btn btn-lg btn-primary btn-block mt-5"

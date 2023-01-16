@@ -10,17 +10,14 @@ const Appartement = require("../Models/Appartement");
  */
 const addPaiement = async (req, res, next) => {
   try {
-    const { Date } = req.body;
+    const { Date,appartementid } = req.body;
 
     console.log(req.body);
 
-    // const existed = await Paiement.findOne({ cin });
-    // if (existed) {
-    //   throw new Error("client already exist");
-    // }
 
     const paiement = await Paiement.create({
       Date,
+      appartementid,
     });
 
     res.status(200).json({
