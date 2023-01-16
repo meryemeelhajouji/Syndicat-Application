@@ -12,6 +12,7 @@ import Client from "./pages/client/Clinets";
 import AddClient from "./pages/client/AddClient";
 import Paiement from "./pages/paiement/Paiement";
 import AddPaiement from "./pages/paiement/AddPaiement";
+import EditPaiement from "./pages/paiement/EditPaiement";
 import Facture from "./pages/paiement/Facture";
 
 import ProtectRoute  from "./utils/ProtectRoute";
@@ -40,6 +41,8 @@ function App() {
 
               <Route path="/paiement" element={<Paiement />} />
               <Route path="/addpaiement" element={<AddPaiement />} />
+              <Route path="/editpaiement/:id" element={<EditPaiement />} />
+
 
               <Route path="/facture" element={<Facture />} />
 

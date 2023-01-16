@@ -1,19 +1,34 @@
 import React, { useState, useEffect } from "react";
 import { Navbar, Sidebar } from "../../components/dashboard/index";
-import { addPaiement, getAllAppartement } from "../../utils/requests";
-import { useNavigate } from "react-router-dom";
+import {
+  getPaiementById,
+  updatePaiement,
+  getAllAppartement,
+} from "../../utils/requests";
+import { useNavigate, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
-function AddPaiement() {
+function EditPaiement() {
   const [paiement, setPaiement] = useState(false);
   const [myError, setError] = useState(false);
   const [appartement, setAppartement] = useState([]);
+  const { id } = useParams();
 
   useEffect(() => {
     getAllAppartement()
       .then((response) => {
         console.log(response);
         setAppartement(response.appartement);
+      })
+      .catch((error) => {
+        setError(true);
+      });
+  }, []);
+
+  useEffect(() => {
+    getPaiementById(id)
+      .then((response) => {
+        setPaiement(response.onePaiement);
       })
       .catch((error) => {
         setError(true);
@@ -31,7 +46,7 @@ function AddPaiement() {
   const handleSubmit = (e) => {
     setError(false);
     e.preventDefault();
-    addPaiement(paiement)
+    updatePaiement(id, paiement)
       .then((response) => {
         console.log(response.message);
         setPaiement(true);
@@ -84,6 +99,7 @@ function AddPaiement() {
                     required=""
                     name="Date"
                     onChange={handleChange}
+                    value={paiement.Date}
                   />
                 </div>
                 <div className="form-group">
@@ -94,16 +110,13 @@ function AddPaiement() {
                     name="appartementid"
                     className="form-control text-dark  "
                     onChange={handleChange}
+                    value={paiement.appartementid}
                   >
                     <option value={appartement}>
                       --Please choose Appartement--
                     </option>
                     {appartement.map((app) => {
-                      return (
-                        <option value={app._id}>
-                          {app.numero}
-                        </option>
-                      );
+                      return <option value={app._id}>{app.numero}</option>;
                     })}
                   </select>
                 </div>
@@ -125,4 +138,4 @@ function AddPaiement() {
   );
 }
 
-export default AddPaiement;
+export default EditPaiement;

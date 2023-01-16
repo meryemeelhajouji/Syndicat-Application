@@ -52,7 +52,18 @@ const getAllPaiement = async (req, res, next) => {
  * METHOD: GET
  * ACCESS: private
  */
-const getPaiementById = async (req, res, next) => {};
+const getPaiementById = async (req, res, next) => {
+  try {
+    let id = req.params.id;
+    const onePaiement = await await Paiement.findOne({ _id: id });
+    res.status(200).json({
+      success: true,
+      onePaiement: onePaiement,
+    });
+  } catch (error) {
+    res.status(400).send(error);
+  }
+};
 
 /**
  * URL: api/paiement/:id
@@ -64,7 +75,7 @@ const updatePaiement = async (req, res, next) => {
   let idPaiement = req.params.id;
   const { body } = req;
   try {
-    if (await Paiement.updateOne({ _id: idPaiement }, { ...body }))
+    if (await Paiement.updateOne({_id: idPaiement }, {...body}))
       res.status(200).send("updated successfully");
     else res.status(400).send("paiement dont  existe");
   } catch (error) {
