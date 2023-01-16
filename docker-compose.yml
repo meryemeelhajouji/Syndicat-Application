@@ -27,15 +27,25 @@ services:
   #     ME_CONFIG_MONGODB_SERVER: mongodb
   #   networks:
   #     - SyndicatApplication
-  backend:
-  build: ./server/
-  ports:
-    - 5000:5000
-  container_name: backend
-  env_file:
-    - ./server/.env
-  volumes:
-    - ./server/:/Syndicat-Application/server/
+  back-end:
+    build: ./server
+    ports:
+      - 5000:5000
+    container_name: back-end
+    volumes:
+      - ./server/:/server
+    networks:
+      - SyndicatApplication
+
+  front-end:
+    build: ./front-end/dashboard_1
+    ports:
+      - 3000:3000
+    depends_on:
+      - back-end
+    container_name: front-end
+    volumes:
+      - ./front/:/Syndicat-Application/front-end/dashboard_1
 
 networks:
   SyndicatApplication:

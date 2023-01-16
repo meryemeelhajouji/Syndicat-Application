@@ -1,15 +1,13 @@
 FROM node:16
 
-LABEL version="1.0.0"
+WORKDIR /front-end/dashboard_1
 
-WORKDIR /app
+COPY ./package.json .
 
-COPY ["package.json","package-lock.json","./"]
-
-RUN npm install 
+RUN npm install
 
 COPY . .
 
 EXPOSE 3000
 
-CMD npm start
+CMD ["npm", "start"]
