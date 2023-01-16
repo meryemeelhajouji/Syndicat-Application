@@ -12,9 +12,7 @@ const addAppartement = async (req, res, next) => {
   try {
     const { Adresse, numero, surface, prix } = req.body;
 
-  
-
-    const existed = await Appartement.findOne({ numero });
+    const existed = await Appartement.findOne({ numero: numero });
     if (existed) {
       throw new Error("client already exist");
     }
@@ -61,7 +59,19 @@ const getAllAppartement = async (req, res, next) => {
  * METHOD: GET
  * ACCESS: private
  */
-const getAppartementById = async (req, res, next) => {};
+const getAppartementById = async (req, res, next) => {
+  try {
+    let id = req.params.id;
+    const oneAppartement = await Appartement.findOne({ _id: id });
+    res.status(200).json({
+      success: true,
+      oneAppartement: oneAppartement,
+      id: id,
+    });
+  } catch (error) {
+    res.status(400).send(error);
+  }
+};
 
 /**
  * URL: api/appartemet/:id

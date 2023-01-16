@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Appartement from "./pages/appartement/Appartement";
 import AddAppartement from "./pages/appartement/AddAppartement";
+import EditAppartement from "./pages/appartement/EditAppartement";
 import Client from "./pages/client/Clinets";
 import AddClient from "./pages/client/AddClient";
 import Paiement from "./pages/paiement/Paiement";
@@ -32,6 +33,7 @@ function App() {
 
               <Route path="/appartement" element={<Appartement />} />
               <Route path="/addAppartement" element={<AddAppartement />} />
+              <Route path="/editAppartement/:id" element={<EditAppartement />} />
 
               <Route path="/client" element={<Client />} />
               <Route path="/addClient" element={<AddClient />} />

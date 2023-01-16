@@ -12,7 +12,8 @@ const Appartement = new mongoose.Schema(
       require: true,
     },
     loue: {
-      type: Boolean,
+      type: String,
+      default: "non loue",
     },
     surface: {
       type: String,
