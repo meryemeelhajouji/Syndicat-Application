@@ -1,6 +1,9 @@
 import React from "react";
 
-function Facture() {
+function Facture(props) {
+  // const {Date} = facture
+  console.log(props.facture)
+  console.log(props.facture.appartementid?.Adresse)
   return (
     <div>
       <section class="py-20 bg-black">
@@ -21,10 +24,8 @@ function Facture() {
                   <div class="grid grid-cols-4 gap-12">
                     <div class="text-sm font-light text-slate-500">
                       <p class="text-sm font-normal text-slate-700">Adresse:</p>
-                      <p>Unwrapped</p>
-                      <p>Fake Street 123</p>
-                      <p>San Javier</p>
-                      <p>CA 1234</p>
+                      <p>{props.facture.appartementid?.Adresse}</p>
+                      
                     </div>
                     <div class="text-sm font-light text-slate-500">
                       <p class="text-sm font-normal text-slate-700">
@@ -43,9 +44,8 @@ function Facture() {
                       <p>000000</p>
 
                       <p class="mt-2 text-sm font-normal text-slate-700">
-                        Date
+                        Date{props.facture.Date}
                       </p>
-                      <p>00.00.00</p>
                     </div>
                   </div>
                 </div>
