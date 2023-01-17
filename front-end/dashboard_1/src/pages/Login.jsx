@@ -56,7 +56,7 @@ function Login() {
           </a>
           <h1 className="h6 mb-3">Sign in</h1>
           <div className="form-group">
-            <label for="inputEmail" className="sr-only">
+            <label htmlFor="inputEmail" className="sr-only">
               Email address
             </label>
             <input
@@ -70,7 +70,7 @@ function Login() {
             />
           </div>
           <div className="form-group">
-            <label for="inputPassword" className="sr-only">
+            <label htmlFor="inputPassword" className="sr-only">
               Password
             </label>
             <input

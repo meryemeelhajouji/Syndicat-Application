@@ -88,7 +88,7 @@ function EditPaiement() {
               >
                 <h1 className="h6 mb-3 mt-5">add</h1>
                 <div className="form-group">
-                  <label for="inputEmail" className="sr-only">
+                  <label htmlFor="inputEmail" className="sr-only">
                     Date
                   </label>
                   <input
@@ -103,7 +103,7 @@ function EditPaiement() {
                   />
                 </div>
                 <div className="form-group">
-                  <label for="inputEmail" className="sr-only">
+                  <label htmlFor="inputEmail" className="sr-only">
                     appartement
                   </label>
                   <select

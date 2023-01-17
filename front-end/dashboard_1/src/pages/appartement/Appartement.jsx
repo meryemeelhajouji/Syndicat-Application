@@ -26,9 +26,12 @@ function Appartement() {
   const Supp = (_id) => {
     deleteAppartement(_id)
       .then((res) => {
-        if (res.status === 201) SetSuccess(res.data);
-        else SetError(res.data);
-        window.location.reload(false);
+        if (res.status === 200) {
+          SetSuccess(res.data);     
+             window.location.reload(false);
+        }
+        else {console.log(res.data)}
+        
       })
       .catch((e) => console.log(e));
   };

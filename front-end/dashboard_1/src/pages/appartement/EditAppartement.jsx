@@ -73,7 +73,7 @@ function EditAppartement() {
               >
                 <h1 className="h6 mb-3 mt-5">add appartement</h1>
                 <div className="form-group">
-                  <label for="inputEmail" className="sr-only">
+                  <label htmlFor="inputEmail" className="sr-only">
                     Adresse
                   </label>
                   <input
@@ -88,7 +88,7 @@ function EditAppartement() {
                   />
                 </div>
                 <div className="form-group">
-                  <label for="inputEmail" className="sr-only">
+                  <label htmlFor="inputEmail" className="sr-only">
                     Numero
                   </label>
                   <input
@@ -103,7 +103,7 @@ function EditAppartement() {
                   />
                 </div>
                 <div className="form-group">
-                  <label for="inputPassword" className="sr-only">
+                  <label htmlFor="inputPassword" className="sr-only">
                     surface
                   </label>
                   <input
@@ -118,7 +118,7 @@ function EditAppartement() {
                   />
                 </div>
                 <div className="form-group">
-                  <label for="inputPassword" className="sr-only">
+                  <label htmlFor="inputPassword" className="sr-only">
                     price
                   </label>
                   <input
@@ -133,7 +133,7 @@ function EditAppartement() {
                   />
                 </div>
                 <div className="form-group">
-                  <label for="inputPassword" className="sr-only">
+                  <label htmlFor="inputPassword" className="sr-only">
                     status
                   </label>
                   <input

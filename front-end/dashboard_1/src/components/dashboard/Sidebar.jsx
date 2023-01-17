@@ -209,9 +209,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
               >
                 •••
               </span>
-              <span className="lg:hidden lg:sidebar-expanded:block 2xl:block">
-                More
-              </span>
+            
             </h3>
           </div>
         </div>

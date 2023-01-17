@@ -60,7 +60,7 @@ function AddClient() {
                onSubmit={handleSubmit}>
                 <h1 className="h6 mb-3 mt-5">add</h1>
                 <div className="form-group">
-                  <label for="inputEmail" className="sr-only">
+                  <label htmlFor="inputEmail" className="sr-only">
                     name
                   </label>
                   <input
@@ -74,7 +74,7 @@ function AddClient() {
                   />
                 </div>
                 <div className="form-group">
-                  <label for="inputPassword" className="sr-only">
+                  <label htmlFor="inputPassword" className="sr-only">
                     CIN
                   </label>
                   <input
@@ -88,7 +88,7 @@ function AddClient() {
                   />
                 </div>
                 <div className="form-group">
-                  <label for="inputPassword" className="sr-only">
+                  <label htmlFor="inputPassword" className="sr-only">
                     Tele
                   </label>
                   <input

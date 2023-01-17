@@ -4,7 +4,7 @@ WORKDIR /front-end/dashboard_1
 
 COPY ./package.json .
 
-RUN npm install
+RUN npm install --force
 
 COPY . .
 

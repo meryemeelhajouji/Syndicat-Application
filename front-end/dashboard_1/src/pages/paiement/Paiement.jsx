@@ -10,7 +10,7 @@ import Facture from "./Facture";
 function Paiement() {
   const [paiement, setPaiement] = useState([]);
   const [data, setData] = useState([]);
-  const [setError] = useState(false);
+  const [Error,setError] = useState(false);
 
   const [SetSuccess] = useState();
   const [SetError] = useState();
@@ -22,14 +22,19 @@ function Paiement() {
       })
       .catch((error) => {
         setError(true);
+        console.log(error)
       });
   }, []);
   const onDelete = (_id) => {
     deletePaiement(_id)
       .then((res) => {
-        if (res.status === 201) SetSuccess(res.data);
-        else SetError(res.data);
-        window.location.reload(false);
+        console.log(res)
+        if (res.status === 200) {
+          SetSuccess(res.data);     
+             window.location.reload(false);
+        }
+        else {console.log(res.data)}
+        
       })
       .catch((e) => console.log(e));
   };
@@ -86,7 +91,7 @@ function Paiement() {
                     <tr>
                       <th></th>
                       <td>{app.Date}</td>
-                      <td>{app.appartementid.Adresse}</td>
+                      <td>{app.appartementid?.Adresse}</td>
 
                       <td className="text-center">
                         <button
@@ -113,19 +118,9 @@ function Paiement() {
                             }
                           >
                             <Facture facture={data} />
-                            {console.log(paiement)}
                           </PrintComponents>
                         </button>
-                        {/* <PrintComponents
-                          trigger={
-                            <button className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-                              Print
-                            </button>
-                          }
-                        >
-                          <Facture facture={paiement} />
-                          {console.log(paiement)}
-                        </PrintComponents> */}
+                     
                       </td>
                     </tr>
                   </tbody>
@@ -135,7 +130,6 @@ function Paiement() {
           </div>
         </div>
       </div>
-      <Facture facture={data} />
     </div>
   );
 }
